@@ -1,0 +1,10 @@
+setRequestHeader()
+	POST 방식에서 전달할 데이터의 방식(타입)을 설정한다.
+	setRequestHeader("Content-Type", "전달할 데이터의 방식");
+
+Ajax 요청 시 XMLHttpRequest 객체는 각 상태별로 readyState가 변한다.
+처음에는 readyState가 0(객체명/.UNSENT, 보내지 않음)이었다가,
+open 메소드를 호출하는 순간 1(객체명.OPEND)로 바뀌고 send()메소드를
+호출하게 되면 순차적으로 2(객체명.HEADERS_RECEIIVED),
+3(객체명.LOADING),4(객체명.DONE)가 된다면 상태코드(객체명.status)가
+성송을 의미하는 200, 201일 떄 응답을 확인해야 한다.

@@ -1,0 +1,65 @@
+EL문과 JSTL : 페이지 가독성 상승
+	자바 구문을 라이브러리 형태로 만들어 놓고 필요할 때마다 태그로 꺼내 쓰는 기술이다.
+	JSP 페이지 내에서 자바코드와 HTML 코드가 섞여 있으면 가독성이 떨어지고 복잡해진다.
+	EL문과 JSTL문을 사용하면 HTML과 태그로만 구성된 일관된 소스코드를 볼 수 있다는 장점이 있다.
+
+- EL(Expression Language)
+	값을 간결하고 간편하게 출력할 수 있도록 해주는 기술
+	
+	자바				EL
+	<%=name%>			${name}
+	<%=member.getName()%>		${member.getName()}
+
+	값을 찾을 때에는 작은 Scope에서 큰 Scope로 찾는다.
+	page -> request -> session -> application
+
+	원하는 스코프의 변수를 찾을 때 아래와 같이 사용한다.
+	${param.name} : GET방식, 쿼리 스트링으로 전달된 파라미터를 받을 때 사용한다.
+	${requestScope.name} : request.setAttribute(key, value)를 통해 ㅌ저장한 파라미터를 받을 떄 사용한다.
+	${sessionScope.name} : session.setAttribute(key, value)를 통해 ㅌ저장한 파라미터를 받을 떄 사용한다.
+
+EL 연산자
+	%, mod
+	&&, and
+	||, or
+	>, lt
+	<, gt
+	>=, le
+	<=, ge
+	==, eq
+	!=, ne
+	empty(값이 있으면 false 값이 없으면 true)
+	!, not
+
+JSTL(Jsp Standard Tag Library)
+	연산이나 조건문, 반복문 등을 편하게 처리할 수 있으며, JSP페이지 내에서
+	자바 코드를 사용하지 않고 로직을 구현할 수 있도록 효율적인 방법을 제공한다.
+
+	자바					JSTL
+	<%					<c:forEach var="변수명" items="${Iterator}">
+	for(자료형 변수명 : Iterator){			HTML 코드
+	%>
+		HTML 코드				</c:forEach>
+	<%	
+	}
+	%>
+
+
+	<%					<c:forEach var="변수명" begin="초기값" end="끝값">
+	for(초기식:조건식; 증감식){				HTML 코드
+	%>
+		HTML 코드				</c:forEach>
+	<%	
+	}
+	%>
+
+JSTL 라이브러리 다운로드
+	http://archive.apache.org/dist/jakarta/taglibs/standard/binaries/
+
+	jakarta-taglibs-standard-1.1.2.zip 다운로드
+
+
+
+
+
+
